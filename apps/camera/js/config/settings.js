@@ -84,9 +84,9 @@ module.exports = {
     icon: 'icon-picture-size',
     maxPixelSize: window.CONFIG_MAX_IMAGE_PIXEL_SIZE,
     options: [
-      // {
-      //   key: '2048x1536'
-      // }
+       {
+         key: '2048x1536'
+       }
     ],
     persistent: true
   },
@@ -97,9 +97,9 @@ module.exports = {
     icon: 'icon-picture-size',
     maxPixelSize: window.CONFIG_MAX_IMAGE_PIXEL_SIZE,
     options: [
-      // {
-      //   key: '2048x1536'
-      // }
+       {
+         key: '2048x1536'
+       }
     ],
     exclude: ['1920x1088'],
     persistent: true
@@ -109,8 +109,8 @@ module.exports = {
     title: 'video-resolution',
     header: 'video-resolution-header',
     icon: 'icon-video-size',
-    options: [],
-    exclude: ['high', '1080p'],
+    options: ['high', '1080p'],
+    exclude: [],
     persistent: true
   },
 
@@ -249,21 +249,21 @@ module.exports = {
 
   settingsMenu: {
     items: [
-      // {
-      //   key: 'scene'
-      // },
+       {
+         key: 'scene'
+       },
       {
         key: 'hdr'
       },
       {
         key: 'timer'
       },
-      // {
-      //   key: 'pictureSizes'
-      // },
-      // {
-      //   key: 'recorderProfiles'
-      // },
+       {
+         key: 'pictureSizes'
+       },
+       {
+         key: 'recorderProfiles'
+       },
       {
         key: 'grid'
       }
