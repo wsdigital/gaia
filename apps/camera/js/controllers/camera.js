@@ -30,7 +30,7 @@ function CameraController(app) {
   this.activity = app.activity;
   this.viewfinder = app.views.viewfinder;
   this.controls = app.views.controls;
-  this.hdrDisabled = this.settings.hdr.get('disabled');
+  this.hdrDisabled = this.settings.hdr.get('enabled');
   this.configure();
   this.bindEvents();
   debug('initialized');
@@ -241,7 +241,7 @@ CameraController.prototype.onNewVideo = function(video) {
   video.isVideo = true;
 
   // Add the poster image to the image storage
-  poster.filepath = video.filepath.replace('.3gp', '.jpg');
+  poster.filepath = video.filepath.replace('.mp4', '.jpg');
 
   storage.addImage(
     poster.blob, { filepath: poster.filepath },
@@ -320,13 +320,13 @@ CameraController.prototype.onBlur = function() {
 };
 
 CameraController.prototype.setISO = function() {
-  if (!this.settings.isoModes.get('disabled')) {
+  if (!this.settings.isoModes.get('enabled')) {
     this.camera.setISOMode(this.settings.isoModes.selected('key'));
   }
 };
 
 CameraController.prototype.setWhiteBalance = function() {
-  if (!this.settings.whiteBalance.get('disabled')) {
+  if (!this.settings.whiteBalance.get('enabled')) {
     this.camera.setWhiteBalance(this.settings.whiteBalance.selected('key'));
   }
 };
