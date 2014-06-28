@@ -108,8 +108,8 @@ Storage.prototype.addImage = function(blob, options, done) {
 Storage.prototype.createVideoFilepath = function(done) {
   var videoStorage = this.video;
   createFilename(this.video, 'video', function(filepath) {
-    var dummyFilepath = getDir(filepath) + 'tmp.3gp';
-    var blob = new Blob([''], { type: 'video/3gpp' });
+    var dummyFilepath = getDir(filepath) + 'tmp.mp4';
+    var blob = new Blob([''], { type: 'video/MPG4' });
     var req = videoStorage.addNamed(blob, dummyFilepath);
     req.onsuccess = function(e) {
       videoStorage.delete(e.target.result);
@@ -154,7 +154,7 @@ Storage.prototype.checkFilepath = function(filepath) {
   // image and get the video filepath by changing '.jpg' to '.3gp'
   if (filepath.indexOf('VID') != -1 &&
       filepath.lastIndexOf('.jpg') === filepath.length - 4) {
-    filepath = filepath.replace('.jpg', '.3gp');
+    filepath = filepath.replace('.jpg', '.mp4');
   }
   return filepath;
 
@@ -233,7 +233,7 @@ Storage.prototype.deleteImage = function(filepath) {
 Storage.prototype.deleteVideo = function(filepath) {
   var videoStorage = this.video;
   var pictureStorage = this.image;
-  var poster = filepath.replace('.3gp', '.jpg');
+  var poster = filepath.replace('.mp4', '.jpg');
 
   videoStorage.delete(filepath).onerror = function(e) {
     console.warn('Failed to delete', filepath,
