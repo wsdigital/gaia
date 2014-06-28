@@ -109,7 +109,7 @@ Storage.prototype.createVideoFilepath = function(done) {
   var videoStorage = this.video;
   createFilename(this.video, 'video', function(filepath) {
     var dummyFilepath = getDir(filepath) + 'tmp.mp4';
-    var blob = new Blob([''], { type: 'video/MPG4' });
+    var blob = new Blob([''], { type: 'video/MPGE4' });
     var req = videoStorage.addNamed(blob, dummyFilepath);
     req.onsuccess = function(e) {
       videoStorage.delete(e.target.result);
